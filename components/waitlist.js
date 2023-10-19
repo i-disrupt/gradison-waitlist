@@ -50,7 +50,7 @@ export default function Waitlist() {
       <div className="flex flex-col text-base text-white">
         <div className="font-medium">Join the waitlist  <span className="text-white text-opacity-50">• 7,461 <span className="text-white text-opacity-30">members are currently waiting!</span></span></div>
         <div className="text-white text-opacity-30 mt-2">
-          Our waitlist has now been closed as we're making our final preparations before release.
+          Our waitlist has now been closed as we&apos;re making our final preparations before release.
 
         </div>
       </div>
