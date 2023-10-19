@@ -62,16 +62,6 @@ export default async function handler(req, res) {
         }
       });
 
-      axios
-        .get("https://gradison.ca/api/members?added=true")
-        .then((res) => {
-          console.log("Added member");
-        })
-        .catch((err) => {
-          console.log(err)
-          console.log("Couldn't add member");
-        });
-
       await webhookClient.send({
         embeds: [embed],
       });

@@ -40,31 +40,6 @@ export default function Waitlist() {
     }
   };
 
-  const members = () => {
-    // Fetch members list from api
-    setMembersLoading(true);
-    setResult({});
-
-    axios
-      .get("/api/members")
-      .then((res) => {
-        setMemberCount(res.data);
-        setMembersLoading(false);
-      })
-      .catch((err) => {
-        setMemberCount({
-          success: false,
-          message: "Member fetch failed.",
-        });
-        setMembersLoading(false);
-      });
-  };
-
-  useEffect(() => {
-    members()
-    console.log("Called members")
-  }, [])
-
   return (
     <div
       className={style.waitlist}
@@ -73,10 +48,10 @@ export default function Waitlist() {
       data-aos-anchor="body"
     >
       <div className="flex flex-col text-base text-white">
-        <div className="font-medium">Join our waitlist!  <span className="text-white text-opacity-50">• {(memberCount?.success && memberCount?.message) || "Member fetch failed."} <span className="text-white text-opacity-30">members are currently waiting!</span></span></div>
+        <div className="font-medium">Join the waitlist  <span className="text-white text-opacity-50">• 7,461 <span className="text-white text-opacity-30">members are currently waiting!</span></span></div>
         <div className="text-white text-opacity-30 mt-2">
-          Sign up for our waitlist for a chance to gain early-access to our 
-          product!
+          Our waitlist has now been closed as we're making our final preparations before release.
+
         </div>
       </div>
       <form onSubmit={handleSubmit}>
@@ -87,12 +62,12 @@ export default function Waitlist() {
             name="email"
             id="email"
             autoComplete="email"
-            placeholder="Email address"
-            disabled={loading || result?.success}
-            value={(result?.success && result?.message) || emailRef.value}
+            placeholder="Waitlist has been disabled."
+            disabled={true}
           />
           <button
             type="submit"
+            disabled={true}
             className={[
               loading || result?.success
                 ? "hover:bg-transparent cursor-default"
